@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+
+public class Lexer {
+    
+    public String[] tokenize(String[] tokens, String input) {
+        
+        ArrayList<String> consumed = new ArrayList<String>();
+        String str = input;
+        
+        while(!str.equals("")) {
+            
+            String result = "";
+            
+            for(int i = 0; i < tokens.length; i++){ 
+                
+                if(str.startsWith(tokens[i]) && (tokens[i].length() > result.length())) {
+                    result = tokens[i];
+                    }               
+                }
+            
+            if(result.equals("")) {
+                str = str.substring(1);
+                } else {
+                consumed.add(result);
+                str = str.substring(result.length());
+                }
+            
+            
+            
+            }
+        
+        return consumed.toArray(new String[consumed.size()]);
+        
+        }
+ 
+    
+    
+}
